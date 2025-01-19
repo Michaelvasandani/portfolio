@@ -36,8 +36,8 @@
     color: inherit;
     padding: 0.5em;
     text-align: center;
-    border-bottom: 0.4em solid transparent; /* Invisible border for consistent spacing */
-    transition: border-color 0.3s; /* Smooth hover effect */
+    border-bottom: 0.4em solid transparent; 
+    transition: border-color 0.3s; 
     padding-bottom: 0.1em;
   }
   
@@ -50,7 +50,7 @@
   
   /* Add hover styles */
   nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent); /* Use the accent color for hover */
+    border-bottom: 0.4em solid var(--color-accent); 
     background-color: oklch(from var(--color-accent) 95% 5% h);
   }
 .projects {

@@ -36,8 +36,8 @@
     color: inherit;
     padding: 0.5em;
     text-align: center;
-    border-bottom: 0.4em solid transparent; /* Invisible border for consistent spacing */
-    transition: border-color 0.3s; /* Smooth hover effect */
+    border-bottom: 0.4em solid transparent; 
+    transition: border-color 0.3s; 
     padding-bottom: 0.1em;
   }
   
@@ -48,23 +48,22 @@
   
   }
   
-  /* Add hover styles */
   nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent); /* Use the accent color for hover */
+    border-bottom: 0.4em solid var(--color-accent); 
     background-color: oklch(from var(--color-accent) 95% 5% h);
   }
 
   header.Michael {
-    text-align: center; /* Center-align the text in the header */
+    text-align: center; 
   }
   
   header.Michael h1 {
-    margin-bottom: 0.5em; /* Reduce space below the heading */
+    margin-bottom: 0.5em; 
   }
   
   header.Michael p {
-    margin-top: 0; /* Remove or reduce space above the paragraph */
-    line-height: 1.5; /* Adjust spacing between links */
+    margin-top: 0; 
+    line-height: 1.5; 
   }
 
   main {
@@ -76,17 +75,17 @@
   .Michael a {
     color: var(--color-accent);
     text-decoration: none;
-    transition: color 0.3s, transform 0.2s; /* Smooth color and transform transitions */
+    transition: color 0.3s, transform 0.2s; 
   }
   
   .Michael a:hover {
-    color: oklch(70% 40% 20); /* Slightly darker accent color */
-    text-decoration: underline; /* Add underline on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    color: oklch(70% 40% 20); 
+    text-decoration: underline; 
+    transform: scale(1.05);
   }
 
   html {
-    scroll-behavior: smooth; /* Smooth scroll for links */
+    scroll-behavior: smooth; 
   }
 
   article {
