@@ -1,0 +1,105 @@
+/* Define the accent color in a custom property */
+:root {
+    --color-accent: oklch(65% 50% 0); /* You can adjust this to a color you like */
+  }
+  
+  /* Apply the accent color as the default for all elements */
+  html {
+    accent-color: var(--color-accent);
+  }
+  
+  
+  body {
+      /* Set line height to 1.5 times the font size
+           and use the OS’s UI font as the website font
+         */
+      font: 100%/1.5 system-ui;
+      /* Set max-width and center page */
+      max-width: 100ch;
+      margin-inline: max(1em, (100% - 100ch) / 2);
+    }
+  
+  nav {
+    display: flex;
+    margin-bottom: 1em;
+    border-bottom: 2px solid;
+    border-bottom-color: oklch(80% 3% 200);
+  }
+  
+  nav ul li {
+    display:contents;
+  }
+  
+  nav a {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5em;
+    text-align: center;
+    border-bottom: 0.4em solid transparent; /* Invisible border for consistent spacing */
+    transition: border-color 0.3s; /* Smooth hover effect */
+    padding-bottom: 0.1em;
+  }
+  
+  .current {
+    border-bottom: 0.4em solid;
+    border-bottom-color: oklch(90% 3% 200);
+    padding-bottom: 0.1em;
+  
+  }
+  
+  /* Add hover styles */
+  nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent); /* Use the accent color for hover */
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+  }
+
+  header.Michael {
+    text-align: center; /* Center-align the text in the header */
+  }
+  
+  header.Michael h1 {
+    margin-bottom: 0.5em; /* Reduce space below the heading */
+  }
+  
+  header.Michael p {
+    margin-top: 0; /* Remove or reduce space above the paragraph */
+    line-height: 1.5; /* Adjust spacing between links */
+  }
+
+  main {
+    display: grid;
+    gap: 1em;
+  }
+
+
+  .Michael a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s; /* Smooth color and transform transitions */
+  }
+  
+  .Michael a:hover {
+    color: oklch(70% 40% 20); /* Slightly darker accent color */
+    text-decoration: underline; /* Add underline on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+
+  html {
+    scroll-behavior: smooth; /* Smooth scroll for links */
+  }
+
+  article {
+    border: 1px solid oklch(80% 3% 200);
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  
