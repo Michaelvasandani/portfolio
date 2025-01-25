@@ -1,11 +1,13 @@
 /* Define the accent color in a custom property */
 :root {
   --color-accent: oklch(65% 50% 0); /* You can adjust this to a color you like */
+  
 }
 
 /* Apply the accent color as the default for all elements */
 html {
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 
@@ -20,10 +22,12 @@ body {
   }
 
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
   display: flex;
   margin-bottom: 1em;
   border-bottom: 2px solid;
-  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
+
 }
 
 nav ul li {
@@ -50,5 +54,23 @@ nav a {
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent); 
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
+
+.color-scheme {
+  position: absolute; /* Take it out of normal flow */
+  top: 1rem; /* Distance from the top */
+  right: 1rem; /* Distance from the right */
+  font-size: 80%; /* Make the font smaller */
+  font-family: inherit; /* Use the parent font-family */
+  display: flex;
+  align-items: center;
+}
+
+.color-scheme select {
+  margin-left: 0.5rem; /* Add space between label text and dropdown */
+  padding: 0.25rem; /* Smaller padding for a compact look */
+  font-size: 100%; /* Match dropdown font size with text */
+  font-family: inherit; /* Inherit the font-family for consistency */
+}
+
