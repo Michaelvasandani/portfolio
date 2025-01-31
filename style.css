@@ -73,4 +73,40 @@ nav a:hover {
   font-size: 100%; /* Match dropdown font size with text */
   font-family: inherit; /* Inherit the font-family for consistency */
 }
+#profile-stats {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#profile-stats h2 {
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.profile-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.profile-grid dt, 
+.profile-grid dd {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.profile-grid dt {
+  color: #555;
+}
+
 

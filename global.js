@@ -98,3 +98,40 @@ for (let p of pages) {
       url = url.slice(0, -1);
       location.href = url;
     });
+
+    export async function fetchJSON(url) {
+      try {
+          const response = await fetch(url);
+          
+          if (!response.ok) {
+              throw new Error(`Failed to fetch projects: ${response.statusText}`);
+          }
+          
+          const data = await response.json();
+          return data;
+      } catch (error) {
+          console.error('Error fetching or parsing JSON data:', error);
+      }
+  }
+
+  export function renderProjects(project, containerElement, headingLevel = 'h2') {
+    // Your code will go here
+    containerElement.innerHTML = '';
+    // Loop through projects and create an article for each
+    project.forEach(project => {
+      const article = document.createElement('article');
+      article.innerHTML = `
+          <${headingLevel}>${project.title}</${headingLevel}>
+          <img src="${project.image || 'default.jpg'}" alt="${project.title || 'Project Image'}">
+          <p>${project.description || 'No description available.'}</p>
+      `;
+      containerElement.appendChild(article);
+  });
+
+}
+
+export async function fetchGitHubData(username) {
+  // return statement here
+  return fetchJSON(`https://api.github.com/users/${username}`);
+
+}
