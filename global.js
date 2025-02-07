@@ -115,19 +115,18 @@ for (let p of pages) {
   }
 
   export function renderProjects(project, containerElement, headingLevel = 'h2') {
-    // Your code will go here
     containerElement.innerHTML = '';
-    // Loop through projects and create an article for each
+    
     project.forEach(project => {
-      const article = document.createElement('article');
-      article.innerHTML = `
-          <${headingLevel}>${project.title}</${headingLevel}>
-          <img src="${project.image || 'default.jpg'}" alt="${project.title || 'Project Image'}">
-          <p>${project.description || 'No description available.'}</p>
-      `;
-      containerElement.appendChild(article);
-  });
-
+        const article = document.createElement('article');
+        article.innerHTML = `
+            <${headingLevel}>${project.title}</${headingLevel}>
+            <img src="${project.image || 'default.jpg'}" alt="${project.title || 'Project Image'}">
+            <p>${project.description || 'No description available.'}</p>
+            <div>Year: ${project.year || 'N/A'}</div>
+        `;
+        containerElement.appendChild(article);
+    });
 }
 
 export async function fetchGitHubData(username) {

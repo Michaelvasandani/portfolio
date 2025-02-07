@@ -101,3 +101,76 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     text-wrap: balance;
 }
+
+/* Style the legend container */
+
+/* Container for pie chart and legend */
+.container {
+  display: flex; /* Arrange children (SVG + legend) in a row */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Space between pie chart and legend */
+  justify-content: center; /* Center them horizontally */
+  max-width: 600px; /* Prevent it from getting too wide */
+  margin: auto; /* Center it on the page */
+}
+
+/* SVG (Pie Chart) */
+svg {
+  flex-shrink: 0; /* Prevent pie chart from shrinking */
+  width: 200px; /* Set fixed size */
+  height: 200px;
+}
+
+.legend {
+  display: flex; /* Use flexbox instead of grid */
+  flex-wrap: wrap; /* Allow wrapping if legend is too long */
+  gap: 12px; /* Space between legend items */
+  list-style: none; /* Remove default bullet points */
+  padding: 12px; /* Inner spacing */
+  margin: 15px 0; /* Space outside the legend */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background */
+  width: fit-content; /* Adjust width based on content */
+}
+
+/* Style each legend item */
+.legend-item {
+  display: flex;
+  align-items: center; /* Vertically align swatch and text */
+  gap: 8px; /* Add spacing between swatch and text */
+  font-size: 14px; /* Adjust text size */
+  padding: 5px 0; /* Add spacing between items */
+}
+
+/* Style the swatch */
+.swatch {
+  width: 15px;  /* Swatch size */
+  height: 15px; /* Swatch size */
+  background-color: var(--color); /* Use dynamic color */
+  display: inline-block; /* Ensure size applies */
+  border-radius: 3px; /* Slight rounding */
+  border: 1px solid #665; /* Slight border for better visibility */
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+path {
+  cursor: pointer;
+}
