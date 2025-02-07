@@ -40,8 +40,7 @@ function renderPieChart(projectsToRender) {
 
     // ✅ Append arcs (pie slices) to SVG
     arcData.forEach((arc, i) => {
-        svg
-            .append('path')
+        svg.append('path')
             .attr('d', arcGenerator(arc))
             .attr('fill', colors(i))
             .style('cursor', 'pointer') // ✅ Make slices clickable
@@ -68,12 +67,13 @@ function renderPieChart(projectsToRender) {
                 // This prevents the pie chart from overriding the search filter
                 
                 // Instead of resetting to all projects, it filters only within the active search results
-                if (selectedIndex === -1) {
-                    renderProjects(projectsToRender, projectsContainer, 'h2'); // ✅ Show search-filtered projects
-                } else {
-                    let selectedYear = data[selectedIndex].label;
-                    let filteredProjects = projectsToRender.filter((project) => project.year === selectedYear);
-                    renderProjects(filteredProjects, projectsContainer, 'h2');
+                let filteredProjects = selectedIndex === -1 
+                    ? projectsToRender 
+                    : projectsToRender.filter((project) => project.year === data[selectedIndex].label);
+
+                renderProjects(filteredProjects, projectsContainer, 'h2');
+                if (projectsTitle) {
+                    projectsTitle.textContent = `${filteredProjects.length} Projects`; // ✅ Update count
                 }
             });
     });
@@ -96,12 +96,13 @@ function renderPieChart(projectsToRender) {
                     .attr('class', (_, i) => (selectedIndex === i ? 'selected' : ''));
 
                 // ✅ FILTER PROJECTS BASED ON SELECTION + SEARCH QUERY
-                if (selectedIndex === -1) {
-                    renderProjects(projectsToRender, projectsContainer, 'h2'); // ✅ Show search-filtered projects
-                } else {
-                    let selectedYear = data[selectedIndex].label;
-                    let filteredProjects = projectsToRender.filter((project) => project.year === selectedYear);
-                    renderProjects(filteredProjects, projectsContainer, 'h2');
+                let filteredProjects = selectedIndex === -1 
+                    ? projectsToRender 
+                    : projectsToRender.filter((project) => project.year === data[selectedIndex].label);
+
+                renderProjects(filteredProjects, projectsContainer, 'h2');
+                if (projectsTitle) {
+                    projectsTitle.textContent = `${filteredProjects.length} Projects`; // ✅ Update count
                 }
             });
     });
