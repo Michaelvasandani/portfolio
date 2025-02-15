@@ -1,0 +1,235 @@
+/* Define the accent color in a custom property */
+:root {
+  --color-accent: oklch(65% 50% 0); /* You can adjust this to a color you like */
+  
+}
+
+/* Apply the accent color as the default for all elements */
+html {
+  accent-color: var(--color-accent);
+  color-scheme: light dark;
+}
+
+
+body {
+    /* Set line height to 1.5 times the font size
+         and use the OS’s UI font as the website font
+       */
+    font: 100%/1.5 system-ui;
+    /* Set max-width and center page */
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+  }
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  display: flex;
+  margin-bottom: 1em;
+  border-bottom: 2px solid;
+  border-bottom-color: var(--border-color);
+
+}
+
+nav ul li {
+  display:contents;
+}
+
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 0.4em solid transparent; 
+  transition: border-color 0.3s; 
+  padding-bottom: 0.1em;
+}
+
+.current {
+  border-bottom: 0.4em solid;
+  border-bottom-color: oklch(90% 3% 200);
+  padding-bottom: 0.1em;
+
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent); 
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.color-scheme {
+  position: absolute; /* Take it out of normal flow */
+  top: 1rem; /* Distance from the top */
+  right: 1rem; /* Distance from the right */
+  font-size: 80%; /* Make the font smaller */
+  font-family: inherit; /* Use the parent font-family */
+  display: flex;
+  align-items: center;
+}
+
+.color-scheme select {
+  margin-left: 0.5rem; /* Add space between label text and dropdown */
+  padding: 0.25rem; /* Smaller padding for a compact look */
+  font-size: 100%; /* Match dropdown font size with text */
+  font-family: inherit; /* Inherit the font-family for consistency */
+}
+#profile-stats {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#profile-stats h2 {
+  margin-bottom: 15px;
+  color: #222;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.profile-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.profile-grid dt, 
+.profile-grid dd {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.profile-grid dt {
+  color: #555;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.stats dt {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.stats dd {
+  margin: 0;
+  padding: 5px 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.gridlines path,
+.gridlines line {
+  stroke: #ccc; /* Light gray grid lines */
+  stroke-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+/* Tooltip styles */
+/* Tooltip styling */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for elevation */
+  border-radius: 8px; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  padding: 10px 15px;
+  font-size: 14px;
+  pointer-events: none; /* Prevents tooltip from interfering with mouse events */
+  opacity: 1; /* Will later be set to 0 when hidden */
+  transition: opacity 200ms ease-in-out;
+}
+
+/* Make <dl> an info panel with grid layout */
+/* Tooltip transition for smooth show/hide */
+dl.info {
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Smooth hover effect for scatterplot dots */
+circle {
+  transition: transform 200ms ease-in-out;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+/* Style the brush selection rectangle */
+.selection {
+  fill-opacity: 0.1; /* Light transparent selection */
+  stroke: black; /* Black stroke */
+  stroke-opacity: 0.7; /* Slight transparency */
+  stroke-dasharray: 5 3; /* Dashed outline */
+  animation: marching-ants 2s linear infinite; /* Animated effect */
+}
+
+/* Highlight selected dots */
+circle.selected {
+  fill: #ff6b6b; /* Change selected dot color */
+}
+
+
+/* Language Breakdown Styling */
+#language-breakdown {
+  max-width: 400px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+}
+
+#language-breakdown dt {
+  font-weight: bold;
+  color: #333;
+  margin-top: 6px;
+}
+
+#language-breakdown dd {
+  margin: 0;
+  padding: 4px 0;
+  color: #666;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+#language-breakdown dd:last-child {
+  border-bottom: none;
+}
