@@ -1,24 +1,26 @@
-import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
+import { fetchJSON, renderProjects, fetchGitHubData } from "./global.js";
 
 // Fetch the project data and filter for the latest three projects
-fetchJSON('./lib/projects.json').then(projects => {
+fetchJSON("./lib/projects.json")
+  .then((projects) => {
     const latestProjects = projects.slice(0, 3);
-    
+
     // Select the projects container
-    const projectsContainer = document.querySelector('.projects');
-    
+    const projectsContainer = document.querySelector(".projects");
+
     // Render the latest projects
     if (latestProjects.length > 0) {
-        renderProjects(latestProjects, projectsContainer, 'h2');
+      renderProjects(latestProjects, projectsContainer, "h2");
     } else {
-        projectsContainer.innerHTML = '<p>No recent projects available.</p>';
+      projectsContainer.innerHTML = "<p>No recent projects available.</p>";
     }
-}).catch(error => {
-    console.error('Error loading latest projects:', error);
-});
+  })
+  .catch((error) => {
+    console.error("Error loading latest projects:", error);
+  });
 
-const githubData = await fetchGitHubData('Michaelvasandani');
-const profileStats = document.querySelector('#profile-stats');
+const githubData = await fetchGitHubData("Michaelvasandani");
+const profileStats = document.querySelector("#profile-stats");
 if (profileStats) {
   profileStats.innerHTML = `
         <dl>
